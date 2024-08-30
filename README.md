@@ -1,3 +1,3 @@
-# fintracker_dart
+# Fintracks
 
-A new Flutter project.
+Finance Manager Application
