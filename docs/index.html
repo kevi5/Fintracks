@@ -4,7 +4,82 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fintracks - Personal Finance Management App</title>
-        <link rel="stylesheet" href="styles.css">
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; 
+            color: #f0f0f0; 
+        }
+
+        header {
+            background-color: #2e637d; 
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        section {
+            padding: 40px 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #333; 
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            color: #e0e0e0; 
+        }
+
+        #features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #features ul li {
+            background-color: #424242; 
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        #feature-images {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            margin-top: 20px;
+        }
+
+        #feature-images img {
+            width: 30%; 
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease; 
+            transform: scale(0.95); 
+        }
+
+        #feature-images img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #111;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
     </head>
     <body>
         <header>
@@ -18,10 +93,19 @@
                 <li>Track income and expenses</li>
                 <li>Categorize transactions</li>
                 <li>Manage recurring payments</li>
-                <li>Customizable budget settings</li>
+                <li>Customizable settings</li>
                 <li>Secure data storage with GetStorage</li>
                 <li>Push notifications for reminders</li>
             </ul>
+        </section>
+
+        <section id="feature-images">
+            <div
+                style="display: flex; justify-content: space-between; align-items: center;">
+                <img src="https://i.imgur.com/y3yfSLd.png" alt="Feature 1">
+                <img src="https://i.imgur.com/svHFI5Q.png" alt="Feature 2">
+                <img src="https://i.imgur.com/VP2mqmh.png" alt="Feature 3">
+            </div>
         </section>
 
         <section id="about">
