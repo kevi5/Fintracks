@@ -98,23 +98,53 @@ class _TransactionPageState extends State<TransactionPage> {
                           items: [
                             DropdownMenuItem(
                               value: 'This Month',
-                              child: Text('This Month'),
+                              child: Text(
+                                'This Month',
+                                style: TextStyle(
+                                  fontFamily: 'SF Pro Text',
+                                  fontSize: 16.0,
+                                ),
+                              ),
                             ),
                             DropdownMenuItem(
                               value: 'Last Month',
-                              child: Text('Last Month'),
+                              child: Text(
+                                'Last Month',
+                                style: TextStyle(
+                                  fontFamily: 'SF Pro Text',
+                                  fontSize: 16.0,
+                                ),
+                              ),
                             ),
                             DropdownMenuItem(
                               value: 'Last 3 Months',
-                              child: Text('Last 3 Months'),
+                              child: Text(
+                                'Last 3 Months',
+                                style: TextStyle(
+                                  fontFamily: 'SF Pro Text',
+                                  fontSize: 16.0,
+                                ),
+                              ),
                             ),
                             DropdownMenuItem(
                               value: 'Last 6 Months',
-                              child: Text('Last 6 Months'),
+                              child: Text(
+                                'Last 6 Months',
+                                style: TextStyle(
+                                  fontFamily: 'SF Pro Text',
+                                  fontSize: 16.0,
+                                ),
+                              ),
                             ),
                             DropdownMenuItem(
                               value: 'All time',
-                              child: Text('All time'),
+                              child: Text(
+                                'All time',
+                                style: TextStyle(
+                                  fontFamily: 'SF Pro Text',
+                                  fontSize: 16.0,
+                                ),
+                              ),
                             ),
                           ],
                           onChanged: (String? newValue) {
@@ -346,102 +376,108 @@ class _TransactionPageState extends State<TransactionPage> {
         return StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
           return AlertDialog(
-            content: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.6,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        icon: const Icon(Icons.close),
-                      ),
-                      Visibility(
-                        visible: isEdit,
-                        child: IconButton(
+            content: SingleChildScrollView(
+              // Wrap content with SingleChildScrollView
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.of(context).size.height *
+                      0.7, // Set max height
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
                           onPressed: () {
-                            _addTransactionToTrash(transactionModel.id ?? 0);
-                            _deleteTransaction(transactionModel.id ?? 0);
                             Navigator.of(context).pop();
                           },
-                          icon: const Icon(Icons.delete),
+                          icon: const Icon(Icons.close),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10.0),
-                  TextField(
-                    controller: _descriptionController,
-                    decoration: InputDecoration(
-                      labelText: 'Description',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      contentPadding: const EdgeInsets.all(10.0),
-                    ),
-                  ),
-                  const SizedBox(height: 10.0),
-                  TextField(
-                    controller: _amountController,
-                    decoration: InputDecoration(
-                      labelText: 'Amount',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      contentPadding: const EdgeInsets.all(10.0),
-                    ),
-                    keyboardType:
-                        const TextInputType.numberWithOptions(decimal: true),
-                  ),
-                  const SizedBox(height: 10.0),
-                  TextField(
-                    readOnly: true,
-                    controller: _dateController,
-                    decoration: InputDecoration(
-                      labelText: 'Date',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      contentPadding: const EdgeInsets.all(10.0),
-                    ),
-                    onTap: () async {
-                      await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(2000),
-                        lastDate: DateTime(2100),
-                      ).then((dateTime) {
-                        if (dateTime != null) {
-                          setState(() {
-                            _dateController.text =
-                                DateFormat('yyyy-MM-dd').format(dateTime);
-                          });
-                        }
-                      });
-                    },
-                  ),
-                  const SizedBox(height: 10.0),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: TextField(
-                          readOnly: true,
-                          controller: _selectedCategoryController,
-                          onTap: () => _dialogBox(context, setState),
-                          decoration: InputDecoration(
-                            labelText: 'Select Category',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0)),
-                            contentPadding: const EdgeInsets.all(10.0),
+                        Visibility(
+                          visible: isEdit,
+                          child: IconButton(
+                            onPressed: () {
+                              _addTransactionToTrash(transactionModel.id ?? 0);
+                              _deleteTransaction(transactionModel.id ?? 0);
+                              Navigator.of(context).pop();
+                            },
+                            icon: const Icon(Icons.delete),
                           ),
                         ),
+                      ],
+                    ),
+                    const SizedBox(height: 10.0),
+                    TextField(
+                      controller: _descriptionController,
+                      decoration: InputDecoration(
+                        labelText: 'Description',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0)),
+                        contentPadding: const EdgeInsets.all(10.0),
                       ),
-                      const SizedBox(width: 10.0),
-                      _getIconWidget(),
-                    ],
-                  ),
-                ],
+                    ),
+                    const SizedBox(height: 10.0),
+                    TextField(
+                      controller: _amountController,
+                      decoration: InputDecoration(
+                        labelText: 'Amount',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0)),
+                        contentPadding: const EdgeInsets.all(10.0),
+                      ),
+                      keyboardType:
+                          const TextInputType.numberWithOptions(decimal: true),
+                    ),
+                    const SizedBox(height: 10.0),
+                    TextField(
+                      readOnly: true,
+                      controller: _dateController,
+                      decoration: InputDecoration(
+                        labelText: 'Date',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0)),
+                        contentPadding: const EdgeInsets.all(10.0),
+                      ),
+                      onTap: () async {
+                        await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2000),
+                          lastDate: DateTime(2100),
+                        ).then((dateTime) {
+                          if (dateTime != null) {
+                            setState(() {
+                              _dateController.text =
+                                  DateFormat('yyyy-MM-dd').format(dateTime);
+                            });
+                          }
+                        });
+                      },
+                    ),
+                    const SizedBox(height: 10.0),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            readOnly: true,
+                            controller: _selectedCategoryController,
+                            onTap: () => _dialogBox(context, setState),
+                            decoration: InputDecoration(
+                              labelText: 'Select Category',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20.0)),
+                              contentPadding: const EdgeInsets.all(10.0),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10.0),
+                        _getIconWidget(),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             actions: <Widget>[

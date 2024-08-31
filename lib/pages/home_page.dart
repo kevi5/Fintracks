@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
     DateTime now = DateTime.now();
     DateTime startOfDay = DateTime(now.year, now.month, now.day);
     DateTime startOfMonth = DateTime(now.year, now.month, 1);
-    DateTime startOfPreviousDay = startOfDay.subtract(Duration(days: 1));
+    DateTime startOfPreviousDay = startOfDay.subtract(Duration(days: 2));
     DateTime startOfPreviousMonth = DateTime(now.year, now.month - 1, 1);
 
     double dailyExpense =
@@ -116,8 +116,8 @@ class _HomePageState extends State<HomePage> {
     DateTime firstDate, lastDate;
     switch (timeframe) {
       case 'This Month':
-        lastDate = DateTime(DateTime.now().year, DateTime.now().month + 1, 0);
-        firstDate = DateTime(DateTime.now().year, DateTime.now().month, 1);
+        lastDate = DateTime(DateTime.now().year, DateTime.now().month + 1, 1);
+        firstDate = DateTime(DateTime.now().year, DateTime.now().month, 0);
         _getTransactionsListBydate(firstDate, lastDate);
         break;
       case 'Last Month':
@@ -189,6 +189,8 @@ class _HomePageState extends State<HomePage> {
   Widget _buildDailyNetCard() {
     double dailyChange = (_dailyIncome - _dailyExpense) -
         (_dailyIncomePrevious - _dailyExpensePrevious);
+    print('dailyChange: $dailyChange');
+    print('Previous: ${_dailyIncomePrevious - _dailyExpensePrevious}');
     double dailyPercentageChange =
         (_dailyIncomePrevious - _dailyExpensePrevious) != 0
             ? (dailyChange / (_dailyIncomePrevious - _dailyExpensePrevious)) *
@@ -325,23 +327,53 @@ class _HomePageState extends State<HomePage> {
                   items: [
                     DropdownMenuItem(
                       value: 'This Month',
-                      child: Text('This Month'),
+                      child: Text(
+                        'This Month',
+                        style: TextStyle(
+                          fontFamily: 'SF Pro Text',
+                          fontSize: 16.0,
+                        ),
+                      ),
                     ),
                     DropdownMenuItem(
                       value: 'Last Month',
-                      child: Text('Last Month'),
+                      child: Text(
+                        'Last Month',
+                        style: TextStyle(
+                          fontFamily: 'SF Pro Text',
+                          fontSize: 16.0,
+                        ),
+                      ),
                     ),
                     DropdownMenuItem(
                       value: 'Last 3 Months',
-                      child: Text('Last 3 Months'),
+                      child: Text(
+                        'Last 3 Months',
+                        style: TextStyle(
+                          fontFamily: 'SF Pro Text',
+                          fontSize: 16.0,
+                        ),
+                      ),
                     ),
                     DropdownMenuItem(
                       value: 'Last 6 Months',
-                      child: Text('Last 6 Months'),
+                      child: Text(
+                        'Last 6 Months',
+                        style: TextStyle(
+                          fontFamily: 'SF Pro Text',
+                          fontSize: 16.0,
+                        ),
+                      ),
                     ),
                     DropdownMenuItem(
                       value: 'All time',
-                      child: Text('All time'),
+                      child: Text(
+                        'All time',
+                        style: TextStyle(
+                          fontFamily: 'SF Pro Text',
+                          fontSize: 16.0,
+                        ),
+                      ),
                     ),
                   ],
                   onChanged: (String? newValue) {
