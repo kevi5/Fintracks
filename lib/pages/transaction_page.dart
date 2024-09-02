@@ -165,7 +165,7 @@ class _TransactionPageState extends State<TransactionPage> {
                     ),
                     SizedBox(height: 20.0),
                     Text(
-                      'Balance: \$$_total',
+                      'Balance: $currencySymbol $_total',
                       style: TextStyle(
                         fontSize: 30.0,
                         fontWeight: FontWeight.bold,
@@ -177,7 +177,7 @@ class _TransactionPageState extends State<TransactionPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Income: \$$_income',
+                          'Income: $currencySymbol $_income',
                           style: TextStyle(
                             color: Colors.green,
                             fontSize: 18.0,
@@ -185,7 +185,7 @@ class _TransactionPageState extends State<TransactionPage> {
                           ),
                         ),
                         Text(
-                          'Expenses: \$$_expense',
+                          'Expenses: $currencySymbol $_expense',
                           style: TextStyle(
                             color: Colors.red,
                             fontSize: 18.0,
