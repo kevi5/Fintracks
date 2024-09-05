@@ -65,14 +65,13 @@ To get started with FinTrack, you need to have Flutter installed on your system.
 - **Settings:** Customize the application settings to fit your preferences.
 - **Trash:** View and manage deleted transactions.
 
+
 ## Demo
 
-Watch a demo of the application in action:
+Watch a demo of the application in action: *(will open in a new tab)*
 
-<video width="600" controls autoplay>
-  <source src="demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[![Watch Demo](https://img.youtube.com/vi/ZOijbv_TERc/0.jpg)](https://youtube.com/shorts/ZOijbv_TERc?feature=share)
+
 
 ## Contributing
 
