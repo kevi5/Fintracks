@@ -9,10 +9,9 @@ FinTrack is a personal finance management application built with Flutter, design
 2. [Getting Started](#getting-started)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [Screenshots](#screenshots)
-6. [Demo](#demo)
-7. [Contributing](#contributing)
-8. [License](#license)
+5. [Demo](#demo)
+6. [Contributing](#contributing)
+7. [License](#license)
 
 ## Features
 
@@ -66,17 +65,14 @@ To get started with FinTrack, you need to have Flutter installed on your system.
 - **Settings:** Customize the application settings to fit your preferences.
 - **Trash:** View and manage deleted transactions.
 
-## Screenshots
-
-![Feature 1](https://i.imgur.com/y3yfSLd.png)
-![Feature 2](https://i.imgur.com/svHFI5Q.png)
-![Feature 3](https://i.imgur.com/VP2mqmh.png)
-
 ## Demo
 
 Watch a demo of the application in action:
 
-[![Watch Demo](demo.mov)](demo.mov)
+<video width="600" controls autoplay>
+  <source src="demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Contributing
 
